@@ -37,11 +37,12 @@ JOIN car_shop.brands b ON b.id = c.brand_id
 JOIN raw_data.sales_extended s ON s.brand = b."name" and s.car_name = c."name"
 JOIN car_shop.colors col ON col."name" = s.color;
 
-INSERT INTO car_shop.sales(car_id, client_id, price, discount, "date")
+INSERT INTO car_shop.sales(car_id, client_id, price, net_price, discount, "date")
 SELECT
 	c.id AS car_id,
 	cl.id AS client_id,
 	s.price,
+	s.net_price,
 	s.discount,
 	s."date"
 FROM car_shop.cars c

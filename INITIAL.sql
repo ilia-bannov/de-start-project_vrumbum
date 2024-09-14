@@ -35,6 +35,7 @@ SELECT
 		WHEN title IS NOT NULL THEN SPLIT_PART(person_name, ' ', 2)
 	END AS first_name,
     REGEXP_REPLACE(TRIM(REPLACE(REPLACE(person_name, COALESCE(title, ''), ''), COALESCE(medical_degree, ''), '')), '.*?\s', '') AS last_name,
+	phone,
 	discount,
 	brand_origin
 FROM (
