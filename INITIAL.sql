@@ -23,7 +23,7 @@ SELECT
 	brand,
 	TRIM(REPLACE(brand_and_car_name, brand, '')) AS car_name,
 	color,
-	gasoline_consumption,
+	COALESCE(gasoline_consumption, 0)::NUMERIC(3,1) AS gasoline_consumption,
 	price,
 	net_price,
 	"date",

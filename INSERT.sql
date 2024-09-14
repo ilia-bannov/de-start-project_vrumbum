@@ -34,7 +34,7 @@ SELECT DISTINCT
 	col.id AS color_id 
 FROM car_shop.cars c
 JOIN car_shop.brands b ON b.id = c.brand_id
-JOIN raw_data.sales_extended s ON s.brand = b."name" and s.car_name = c."name"
+JOIN raw_data.sales_extended s ON s.brand = b."name" AND s.car_name = c."name" AND s.gasoline_consumption = c.gasoline_consumption
 JOIN car_shop.colors col ON col."name" = s.color;
 
 INSERT INTO car_shop.sales(car_id, client_id, price, net_price, discount, "date")
@@ -47,5 +47,5 @@ SELECT
 	s."date"
 FROM car_shop.cars c
 JOIN car_shop.brands b ON b.id = c.brand_id
-JOIN raw_data.sales_extended s ON s.brand = b."name" and s.car_name = c."name"
+JOIN raw_data.sales_extended s ON s.brand = b."name" AND s.car_name = c."name" AND s.gasoline_consumption = c.gasoline_consumption
 JOIN car_shop.clients cl ON cl.phone = s.phone;
